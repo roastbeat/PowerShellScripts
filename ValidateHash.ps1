@@ -24,7 +24,7 @@ function Title() {
 "
 }
 
-# Typeof Object
+# Returns object type
 $FileHash = Get-FileHash $Path -Algorithm $Algorithm
 
 function Print() {
