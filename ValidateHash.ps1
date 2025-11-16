@@ -1,14 +1,17 @@
 # Execution: 
-# powershell.exe Validate_Hash.ps1 -path "Path to file" -algo "Algorithm" -origin "Given hash"
+# powershell.exe Validate_Hash.ps1 -Path "Path to file" -Algorithm "Algorithm" -ExpectedHash "Given hash"
 
 # TODO:
 # Add help page --> option -help     --> alias -h
 # Add version   --> option -version  --> alias -v
 
-param(
-    [String]$path,  # Path
-    [String]$algo,  # Algorithm
-    [String]$origin # Given hash 
+param(#
+    [Parameter(Mandatory, HelpMessage = "Please provide a valid path")]
+    [String]$Path,  # Path
+    [Parameter(Mandatory, HelpMessage = "Provide a hash algorithm, e. g. `"MD5`"")]
+    [String]$Algorithm,  # Algorithm
+    [Parameter(Mandatory)]
+    [String]$SourceHash # Given hash 
 )
 
 
@@ -22,20 +25,20 @@ function Title() {
 "
 }
 
-$filehash = Get-FileHash $path -Algorithm $algo
+$FileHash = Get-FileHash $Path -Algorithm $Algorithm
 
 function Print() {
     
     Clear-Host
     Title
     Write-Host "Calculated hash: " 
-    Write-Host $filehash.Hash.ToLower()
+    Write-Host $FileHash.Hash.ToLower()
     Write-Host ("  ------------  ")
     Write-Host "Source hash: " 
-    Write-Host $origin.ToLower()
+    Write-Host $SourceHash.ToLower()
 }
 
-if ($filehash.Hash -eq $origin) {
+if ($FileHash.Hash -eq $SourceHash) {
     Print
     Write-Host ("+------------+") -ForegroundColor DarkGreen
     Write-Host ("| File valid |") -ForegroundColor DarkGreen

@@ -2,8 +2,10 @@
 # powershell.exe Set-Hash.ps1 -path "Path to file" -algo "Algorithm"
 
 param(
-[String]$path, # $path = Path
-[String]$algo  # $algo = Algorithm  
+[Parameter(Mandatory, HelpMessage = "Please provide a valid path")]
+[String]$Path,
+[Parameter(Mandatory, HelpMessage = "Provide a hash algorithm, e. g. `"MD5`"")]
+[String]$Algorithm 
 )
 
 # Font threepoint --> http://www.network-science.de/ascii/
@@ -17,5 +19,5 @@ _)(/_ |   | |(_|_\| |
 
 Clear-Host
 Title
-$filehash = Get-FileHash $path -Algorithm $algo
-$filehash | Format-List
+$FileHash = Get-FileHash $Path -Algorithm $Algorithm
+$FileHash | Format-List

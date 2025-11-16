@@ -9,7 +9,7 @@
     User name
 
     .EXAMPLE
-    Test -Name "Lutscher"
+    Temp -Name "Alice"
 #>
 
 
