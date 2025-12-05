@@ -18,14 +18,10 @@
 #     Write-Output "Argument: $arg"
 # }
 
-$date = Get-Date -Format "[dd-MM-yyyy | hh:mm:ss]"
-
 # If no arg is given or if it's "help", open up help
 if ($args.Length -eq 0 -or $args[0] -eq "--help" -or $args[0] -eq "-h"){
     Write-Host "This might be some help text"
 } 
-
-Write-Host $date
 
 # Write-Host $args[0]
 
