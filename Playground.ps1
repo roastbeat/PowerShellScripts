@@ -1,20 +1,41 @@
-﻿
-$target = $null
+﻿function PrintHeader {
+    Write-Host " _____ _____     _               _             "
+    Write-Host "|_   _|  __ \   | |             | |            "
+    Write-Host "  | | | |__) |__| |__   ___  ___| | _____ _ __ "
+    Write-Host "  | | |  ___/ __| '_ \ / _ \/ __| |/ / _ \ '__|"
+    Write-Host " _| |_| |  | (__| | | |  __/ (__|   <  __/ |   "
+    Write-Host "|_____|_|   \___|_| |_|\___|\___|_|\_\___|_|   "
+}    
+
+Clear-Host
+
+$exit = 'n'
+
+PrintHeader
 
 do {
-    $target = Read-Host("Set FQDN or IP")
-}while ($null -eq $target)
+    $target = Read-Host("`nType FQDN or IP")
 
-$isOnline = Test-Connection $connection -Quiet
+    try {
+        $isOnline = Test-Connection $target -Quiet
 
-cls
+        # Clear-Host
 
-if ($isOnline -eq $true) {
-    Write-Host "`nThe target '$target ' is online.`n" -ForegroundColor Green
-} else {
-    Write-Host "`nThe target '$target ' is offline.`n" -ForegroundColor Red
-} 
+        if ($isOnline) {
+            Write-Host "`nTarget '$target' is online.`n" -ForegroundColor Green
+        } else {
+            Write-Host "`nTarget '$target' is offline.`n" -ForegroundColor Red
+        } 
+    }
+    catch {
+        Write-Host "`nNo FQDN or IP found`n" -ForegroundColor DarkYellow
+    }
 
-Pause
+    $exit = Read-Host("Exit? [y]/[n]") 
+    # Write-Host $exit
 
-cls
+    
+} while ($exit -eq 'n')
+
+Clear-Host
+
