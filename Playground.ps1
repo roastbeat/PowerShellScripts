@@ -1,31 +1,20 @@
-﻿<#
-    .SYNOPSIS
-    Does nothing useful at the moment
+﻿
+$target = $null
 
-    .DESCRIPTION
-    Just returning a dummy text
+do {
+    $target = Read-Host("Set FQDN or IP")
+}while ($null -eq $target)
 
-    .PARAMETER Name
-    No parameter needed so far
+$isOnline = Test-Connection $connection -Quiet
 
-    .EXAMPLE
-    Playground.ps1 [--help | -h]
-#>
+cls
 
-
-
-# foreach ($arg in $args) {
-#     Write-Output "Argument: $arg"
-# }
-
-$date = Get-Date -Format "[dd-MM-yyyy | hh:mm:ss]"
-
-# If no arg is given or if it's "help", open up help
-if ($args.Length -eq 0 -or $args[0] -eq "--help" -or $args[0] -eq "-h"){
-    Write-Host "This might be some help text"
+if ($isOnline -eq $true) {
+    Write-Host "`nThe target '$target ' is online.`n" -ForegroundColor Green
+} else {
+    Write-Host "`nThe target '$target ' is offline.`n" -ForegroundColor Red
 } 
 
-Write-Host $date
+Pause
 
-# Write-Host $args[0]
-
+cls

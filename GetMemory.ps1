@@ -1,4 +1,4 @@
-﻿# Auführung: powershell.exe GetFreeMemoryCopy -lw [Laufwerksbuchstabe] - u [Einheit]
+﻿# Auführung: powershell.exe GetFreeMemory -lw [Laufwerksbuchstabe] - u [Einheit]
 # Damit das funktioniert, muss der Pfad des Verzeichnisses, in dem das Script liegt, in der Path-Variable angelegt sein
 
 param(
