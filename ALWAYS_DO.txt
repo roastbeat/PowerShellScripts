@@ -1,0 +1,7 @@
+# LINUX
+1. Start with 'gstart' in bash
+2. End with 'gfin' in bash
+
+# WINDOWS
+1. Start with 'git pull' in powershell
+2. End with "git add . && git commit -m 'Started automated after-work routine...' && git push"
