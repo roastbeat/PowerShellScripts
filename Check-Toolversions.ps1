@@ -2,14 +2,15 @@
 function PrintHeader {
     # Font "big" --> http://www.network-science.de/ascii/
     Clear-Host
-    Write-Output "__      __           _              _____ _               _             "             
-    Write-Output "\ \    / /          (_)            / ____| |             | |            "
-    Write-Output " \ \  / /__ _ __ ___ _  ___  _ __ | |    | |__   ___  ___| | _____ _ __ "
-    Write-Output "  \ \/ / _ \ '__/ __| |/ _ \| '_ \| |    | '_ \ / _ \/ __| |/ / _ \ '__|"
-    Write-Output "   \  /  __/ |  \__ \ | (_) | | | | |____| | | |  __/ (__|   <  __/ |   "
-    Write-Output "    \/ \___|_|  |___/_|\___/|_| |_|\_____|_| |_|\___|\___|_|\_\___|_|   "
-    Write-Output ""
+    Write-Host "__      __           _              _____ _               _             " -ForegroundColor Cyan           
+    Write-Host "\ \    / /          (_)            / ____| |             | |            " -ForegroundColor Cyan
+    Write-Host " \ \  / /__ _ __ ___ _  ___  _ __ | |    | |__   ___  ___| | _____ _ __ " -ForegroundColor DarkCyan
+    Write-Host "  \ \/ / _ \ '__/ __| |/ _ \| '_ \| |    | '_ \ / _ \/ __| |/ / _ \ '__|" -ForegroundColor Blue
+    Write-Host "   \  /  __/ |  \__ \ | (_) | | | | |____| | | |  __/ (__|   <  __/ |   " -ForegroundColor Blue
+    Write-Host "    \/ \___|_|  |___/_|\___/|_| |_|\_____|_| |_|\___|\___|_|\_\___|_|   " -ForegroundColor DarkBlue
+    Write-Host ""
 }
+
 
 PrintHeader
 
@@ -26,14 +27,19 @@ if ($null -eq $apps) {
     Write-Host "`nList is empty, set some paths there.`n" -ForegroundColor Red
     return
 }
-
-$report = foreach ($app in $apps) {
-    $appInfo = Get-Item $app
-    [PSCustomObject]@{
-        "AppName" = $appInfo.VersionInfo.ProductName
-        "Version" = $appInfo.VersionInfo.FileVersionRaw
-        # "Path" = $appInfo.VersionInfo.FileName
+    
+try {
+    $report = foreach ($app in $apps) {
+        $appInfo = Get-Item $app -ErrorAction Stop
+        [PSCustomObject]@{
+            "AppName" = $appInfo.VersionInfo.ProductName
+            "Version" = $appInfo.VersionInfo.FileVersionRaw
+            # "Path" = $appInfo.VersionInfo.FileName
+        }
     }
+    
+    $report | Format-Table -AutoSize
 }
-
-$report | Format-Table -AutoSize
+catch {
+    Write-Error "The script only works on Windows!`n`n" 
+}
