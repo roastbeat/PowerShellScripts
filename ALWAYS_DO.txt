@@ -1,0 +1,2 @@
+1. Start with 'gstart' in bash
+2. End with 'gfin' in bash
