@@ -25,10 +25,19 @@ Stop-Process -Name firefox -ErrorAction SilentlyContinue
 Stop-Process -Name msedge -ErrorAction SilentlyContinue
 Stop-Process -Name soffice.bin -ErrorAction SilentlyContinue
 
+# Create a hashtable here to access key / value pairs for further information
+$processes = Get-Content "./testdata.txt"
 
-Start-Process "C:\Program Files\Mozilla Firefox\firefox.exe" 
-Start-Process "C:\Program Files\LibreOffice\program\swriter.exe" 
-Start-Process "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+
+# Is it really necessary to start the processes for the wanted infos??
+foreach ($process in $processes){
+    # Maybe the hashtable has to be created here, because now the paths are real processes where the infos live
+    Start-Process $process
+}
+
+# Start-Process "C:\Program Files\Mozilla Firefox\firefox.exe" 
+# Start-Process "C:\Program Files\LibreOffice\program\swriter.exe" 
+# Start-Process "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 
 
 $foxInfo = Get-Process -Name firefox -FileVersionInfo
