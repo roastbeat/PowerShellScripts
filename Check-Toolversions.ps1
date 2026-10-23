@@ -15,6 +15,8 @@ PrintHeader
 
 $apps = Get-Content ".\testdata.txt"
 
+# Needs some check here if the path is valid
+
 # if (Test-Path $apps) { 
 #     Write-Host "List is missing. Please put an apps list into the current directory." -ForegroundColor Red
 #     return 
