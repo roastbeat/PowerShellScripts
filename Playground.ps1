@@ -1,9 +1,7 @@
 ﻿try {
     $data = Get-Content "./testdata.txt" -ErrorAction Stop
 
-    # Add check to test if file is empty!
-
-    # Nullish check goes here
+    # Add check to test if file is empty or nullish!
 
     # Another comment for testing gfin and running some more context here
     
