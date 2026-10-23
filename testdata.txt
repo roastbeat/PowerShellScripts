@@ -1,3 +1,3 @@
-C:\Users\MyUser\Dokumente\myapp.exe
-C:\Users\MyUser\Desktop\weather.app
-D:\Data\Backups\MySuperSecretTest\justForFun.log
+C:\Program Files\Mozilla Firefox\firefox.exe
+C:\Program Files\LibreOffice\program\swriter.exe
+C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
