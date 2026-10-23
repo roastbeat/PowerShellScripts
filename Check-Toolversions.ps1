@@ -30,8 +30,8 @@ if ($null -eq $apps) {
 $report = foreach ($app in $apps) {
     $appInfo = Get-Item $app
     [PSCustomObject]@{
-        "App" = $appInfo.VersionInfo.ProductName
-        "RAW-Version" = $appInfo.VersionInfo.FileVersionRaw
+        "AppName" = $appInfo.VersionInfo.ProductName
+        "Version" = $appInfo.VersionInfo.FileVersionRaw
         # "Path" = $appInfo.VersionInfo.FileName
     }
 }
