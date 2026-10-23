@@ -3,6 +3,8 @@
 
     # Add check to test if file is empty!
     
+    # Nullish check goes here
+    
     # Just for debugging
     # $data.GetType().FullName
 
