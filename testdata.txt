@@ -1,0 +1,3 @@
+C:\Users\MyUser\Dokumente\myapp.exe
+C:\Users\MyUser\Desktop\weather.app
+D:\Data\Backups\MySuperSecretTest\justForFun.log
