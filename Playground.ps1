@@ -1,5 +1,7 @@
 ﻿try {
     $data = Get-Content "./testdata.txt" -ErrorAction Stop
+
+    # Add check to test if file is empty!
     
     # Just for debugging
     # $data.GetType().FullName
