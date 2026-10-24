@@ -1,4 +1,6 @@
-﻿try {
+﻿# TODO: Refactor the code!
+
+try {
     $data = Get-Content "./testdata.txt" -ErrorAction Stop
 
     # Add check to test if file is empty or nullish!
