@@ -62,6 +62,7 @@ try {
         [PSCustomObject]@{
             "AppName" = $appInfo.VersionInfo.ProductName
             "Version" = $appInfo.VersionInfo.FileVersionRaw
+            "LastWrite" = $appInfo.LastWriteTime
             # "Path" = $appInfo.VersionInfo.FileName
         }
     }
