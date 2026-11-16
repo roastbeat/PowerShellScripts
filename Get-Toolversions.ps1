@@ -70,5 +70,6 @@ try {
     $report | Format-Table -AutoSize
 }
 catch {
-    Write-Host "Error: $($_.Exception.Message)`n`n" -ForegroundColor Red 
+    Write-Host "Error: $($_.Exception.Message)" -ForegroundColor Red 
+    Write-Host "INFO:  App does NOT run on Linux!`n`n"
 }
