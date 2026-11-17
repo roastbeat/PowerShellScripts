@@ -18,7 +18,7 @@
 #     Write-Output "Argument: $arg"
 # }
 
-$date = Get-Date 
+# $date = Get-Date 
 
 
 
